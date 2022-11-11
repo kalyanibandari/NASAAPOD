@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NASAAPOD</string>
+    <string name="internet_unavailable">Internet is not available, please check your connection and retry</string>
+    <string name="favList">Favourites</string>
+    <string name="no_favorite_error">"There is no favorite, please choose your favorites by cliking on favorite icon from the details screen."</string>
+    <string name="apod_image">APOD image</string>
+    <string name="favorite_icon">Favorite icon</string>
+    <string name="calendar_icon">Calendar icon</string>
+    <string name="no_internet_connection">Please check your internet connection and try again.</string>
+    <string name="added_to_favorites">Added to favorites</string>
+    <string name="removed_from_favorites">Removed from favorites</string>
+</resources>

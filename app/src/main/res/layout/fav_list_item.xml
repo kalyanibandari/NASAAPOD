@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <import type="com.example.nasaapod.data.network.MediaType" />
+        <variable
+            name="type"
+            type="String" />
+        <variable
+            name="isFavorite"
+            type="boolean" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_10dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="@dimen/view_radius"
+        app:cardElevation="@dimen/view_elevation">
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_10dp">
+
+            <TextView
+                android:id="@+id/tv_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:gravity="center"
+                android:lines="2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray">
+
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="2dp"
+                android:visibility="@{type.equals(MediaType.VIDEO.type) ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageImgView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:background="@android:color/darker_gray"
+                android:contentDescription="apod image"
+                android:visibility="@{type.equals(MediaType.IMAGE.type) ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--<ImageView
+                android:id="@+id/newImgView"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:contentDescription="@string/image_description"
+                android:padding="8dp"
+                android:src="@drawable/ic_new"
+                android:visibility="@{isNew ? View.VISIBLE : View.GONE}" />-->
+
+            <!--<com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/loading"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateTint="@color/Apod_gray_50"
+                android:visibility="@{isLoading ? View.VISIBLE : View.GONE}" />-->
+
+            <TextView
+                android:id="@+id/titleTxtView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageImgView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:gravity="center"
+                android:lines="3"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/favoriteImgView"
+                android:layout_width="51dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:contentDescription="fav imageview"
+                android:padding="8dp"
+                android:src="@{isFavorite ? @drawable/ic_favorite : @drawable/ic_not_favorite}" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
